@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.Duration;
 
 @Entity
 public class Rytter {
@@ -19,7 +20,9 @@ public class Rytter {
 
     @Column(name="spurt_point")
     private int spurtPoint;
-    private Time tid;
+
+    private String tid;
+
 
     @ManyToOne
     @JoinColumn(name = "h_id")
@@ -65,19 +68,19 @@ public class Rytter {
         this.spurtPoint = spurtPoint;
     }
 
-    public Time getTid() {
-        return tid;
-    }
-
-    public void setTid(Time tid) {
-        this.tid = tid;
-    }
-
     public Hold getHold() {
         return hold;
     }
 
     public void setHold(Hold hold) {
         this.hold = hold;
+    }
+
+    public String getTid() {
+        return tid;
+    }
+
+    public void setTid(String tid) {
+        this.tid = tid;
     }
 }
