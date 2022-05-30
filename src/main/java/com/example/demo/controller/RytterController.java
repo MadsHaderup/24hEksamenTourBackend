@@ -45,6 +45,11 @@ public class RytterController {
         return new ResponseEntity<>(rytterService.findAllRytter(), HttpStatus.OK);
     }
 
+    @GetMapping("/sort")
+    public ResponseEntity<List<Rytter>> findAllRytterSorted() {
+        return new ResponseEntity<>(rytterService.findAllRytterSorted(), HttpStatus.OK);
+    }
+
     @GetMapping("hold/{id}")
     public ResponseEntity<List<Rytter>> findRytterByHoldId(@PathVariable Long id){
         return new ResponseEntity<>(rytterService.findRytterByHoldId(id), HttpStatus.OK);

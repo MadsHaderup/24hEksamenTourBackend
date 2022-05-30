@@ -11,5 +11,5 @@ public interface RytterRepository extends JpaRepository<Rytter, Long> {
     @Query("SELECT r FROM  Rytter r WHERE r.hold.id = : id")
     List<Rytter> getRytterByHold_Id(Long id);
 
-
+    List<Rytter> findAllByOrderByTidAsc();
 }
