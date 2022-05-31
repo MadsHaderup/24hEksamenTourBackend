@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.model.Rytter;
 import com.example.demo.repository.RytterRepository;
-import com.example.demo.utils.RytterSorter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +29,7 @@ public class RytterService {
     }
 
     public List<Rytter> findAllRytter(){
-        return rytterRepository.findAll();
+        return rytterRepository.findAllByOrderByIdAsc();
     }
 
     public List<Rytter> findAllRytterSorted(){
