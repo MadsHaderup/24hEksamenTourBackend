@@ -22,6 +22,7 @@ public class Rytter implements Comparable<Rytter> {
     private int spurtPoint;
 
     private String tid;
+    private String land;
 
 
     @ManyToOne
@@ -82,6 +83,14 @@ public class Rytter implements Comparable<Rytter> {
 
     public void setTid(String tid) {
         this.tid = tid;
+    }
+
+    public String getLand() {
+        return land;
+    }
+
+    public void setLand(String land) {
+        this.land = land;
     }
 
     @Override
