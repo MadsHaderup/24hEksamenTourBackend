@@ -5,7 +5,7 @@ import java.sql.Time;
 import java.time.Duration;
 
 @Entity
-public class Rytter {
+public class Rytter implements Comparable<Rytter> {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="r_id")
@@ -82,5 +82,15 @@ public class Rytter {
 
     public void setTid(String tid) {
         this.tid = tid;
+    }
+
+    @Override
+    public int compareTo(Rytter r) {
+        String [] j = this.getTid().split(":");
+        int k = Integer.parseInt(j[0])*3600+Integer.parseInt(j[1])*60+Integer.parseInt(j[1]);
+
+        String [] l = r.getTid().split(":");
+        int m = Integer.parseInt(l[0])*3600+Integer.parseInt(l[1])*60+Integer.parseInt(l[1]);
+        return k-m;
     }
 }

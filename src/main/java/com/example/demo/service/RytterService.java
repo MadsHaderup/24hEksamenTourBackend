@@ -5,7 +5,8 @@ import com.example.demo.repository.RytterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
 @Service
 public class RytterService {
@@ -33,7 +34,11 @@ public class RytterService {
     }
 
     public List<Rytter> findAllRytterSorted(){
-        List<Rytter> rytterList = rytterRepository.findAllByOrderByTidAsc();
+        List<Rytter> rytterList = rytterRepository.findAll();
+        Collections.sort(rytterList);
+
+
+
         return rytterList;
     }
 
