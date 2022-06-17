@@ -13,5 +13,9 @@ public interface RytterRepository extends JpaRepository<Rytter, Long> {
 
     List<Rytter> findAllByOrderByIdAsc();
 
-    List<Rytter> findAllByOrderByTidAsc();
+    Rytter findFirstByOrderByBjergPointDesc();
+
+    Rytter findFirstByOrderBySpurtPointDesc();
+
+
 }

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -53,6 +54,18 @@ public class RytterController {
     @GetMapping("hold/{id}")
     public ResponseEntity<List<Rytter>> findRytterByHoldId(@PathVariable Long id){
         return new ResponseEntity<>(rytterService.findRytterByHoldId(id), HttpStatus.OK);
+    }
+
+
+    //TILFØJELSE
+    @GetMapping("/trojer")
+    public ResponseEntity<List<Rytter>> findAllTrojer() {
+        List<Rytter> rytterList = new ArrayList<>();
+        rytterList.add(rytterService.findQuickestRytter());
+        rytterList.add(rytterService.findBjergRytter());
+        rytterList.add(rytterService.findSpurtRytter());
+        rytterList.add(rytterService.findQuickestRytterUnderTwentysix());
+        return new ResponseEntity<>(rytterList, HttpStatus.OK);
     }
 
 }

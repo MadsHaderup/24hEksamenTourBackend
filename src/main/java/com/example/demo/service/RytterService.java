@@ -36,11 +36,35 @@ public class RytterService {
     public List<Rytter> findAllRytterSorted(){
         List<Rytter> rytterList = rytterRepository.findAll();
         Collections.sort(rytterList);
-
-
-
         return rytterList;
     }
+
+    //TILFØJELSE
+    public Rytter findQuickestRytter(){
+        List<Rytter> rytterList = rytterRepository.findAll();
+        Collections.sort(rytterList);
+        return rytterList.get(0);
+    }
+    //TILFØJELSE
+    public Rytter findQuickestRytterUnderTwentysix(){
+        List<Rytter> rytterList = rytterRepository.findAll();
+        Collections.sort(rytterList);
+        for(Rytter r : rytterList){
+            if(r.getAlder()<26){
+                return r;
+            }
+        }
+        return new Rytter();
+    }
+    //TILFØJELSE
+    public Rytter findBjergRytter(){
+        return rytterRepository.findFirstByOrderByBjergPointDesc();
+    }
+    //TILFØJELSE
+    public Rytter findSpurtRytter(){
+        return rytterRepository.findFirstByOrderBySpurtPointDesc();
+    }
+
 
     public List<Rytter> findRytterByHoldId(Long id){
         return rytterRepository.getRytterByHold_Id(id);
