@@ -1,9 +1,8 @@
 package com.example.demo;
 
-import static org.mockito.Mockito.doReturn;
+
 import static org.mockito.Mockito.verify;
 
-import com.example.demo.model.Hold;
 import com.example.demo.model.Rytter;
 import com.example.demo.repository.RytterRepository;
 import com.example.demo.service.RytterService;
@@ -13,8 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.util.Assert;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
